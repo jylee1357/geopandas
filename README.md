@@ -19,6 +19,7 @@ gdf = gpd.GeoDataFrame(gdf, geometry = gpd.points_from_xy(gdf['x'], gdf['y']), c
 
 
 # Geopandas spatial join
+
 join_left_df = pointdf.sjoin(polydf, how="left")
 
 join_right_df = pointdf.sjoin(polydf, how="right")
