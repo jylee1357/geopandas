@@ -34,4 +34,14 @@ pointdf.sjoin_nearest(polydf, how="left", distance_col="Distances")
 # 
 ```
 
+```
+# Converting Pandas dataframe latitude & longitude to geopandas point 
+df_sejong['geometry'] = df_sejong.apply(lambda x: Point((float(x.lng), float(x.lat))), axis=1)
+df_sejong
 
+gdf = gpd.GeoDataFrame(df_sejong, geometry='geometry')
+gdf
+
+gdf = gdf.set_crs("epsg:4326")
+gdf.to_file('sejong.shp', driver='ESRI Shapefile', encoding = "cp949")
+```
