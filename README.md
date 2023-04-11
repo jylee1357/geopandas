@@ -45,3 +45,8 @@ gdf
 gdf = gdf.set_crs("epsg:4326")
 gdf.to_file('sejong.shp', driver='ESRI Shapefile', encoding = "cp949")
 ```
+```
+# Converting pandas x,y to geopandas x,y and saving it as geopandas dataframe
+gdf = geopandas.GeoDataFrame(
+    df, geometry=geopandas.points_from_xy(df.Longitude, df.Latitude))
+```    
