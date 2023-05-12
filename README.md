@@ -50,3 +50,8 @@ gdf.to_file('sejong.shp', driver='ESRI Shapefile', encoding = "cp949")
 gdf = geopandas.GeoDataFrame(
     df, geometry=geopandas.points_from_xy(df.Longitude, df.Latitude))
 ```    
+```
+# Converting dataframe with geo information as a geodataframe and save it as geopackage file
+gdf2 = gpd.GeoDataFrame(df2, geometry='geometry')
+gdf2.to_file("test.gpkg", driver = "GPKG", encoding = "cp949")
+```    
