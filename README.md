@@ -55,3 +55,16 @@ gdf = geopandas.GeoDataFrame(
 gdf2 = gpd.GeoDataFrame(df2, geometry='geometry')
 gdf2.to_file("test.gpkg", driver = "GPKG", encoding = "cp949")
 ```    
+```
+# Extract point coordinates from polygon
+gdf_iksan['center_point'] = gdf_iksan.centroid
+```
+```
+# Convert EPSG:5186 to EPSG:4326
+# First, set original geodataframe's crs based on the coordinates
+gdf_panel = gpd.GeoDataFrame(df_nongji, geometry = gpd.points_from_xy(df_nongji['x'], df_nongji['y']), crs = 'EPSG:5186')
+# or
+gdf_panel = gdf_panel.set_crs("epsg:5186")
+# and convert it to desired crs using to_crs
+gdf_panel = gdf_panel.to_crs('epsg:4326')
+```    
