@@ -68,3 +68,7 @@ gdf_panel = gdf_panel.set_crs("epsg:5186")
 # and convert it to desired crs using to_crs
 gdf_panel = gdf_panel.to_crs('epsg:4326')
 ```    
+```
+# Calculating area from polygon
+gdf['area'] = gdf['geometry'].area
+```
